@@ -1,0 +1,12 @@
+{
+  "name": "antisocial",
+  "version": "0.0.0",
+  "authors": [
+    "ariellyrycs <ariel_556@hotmail.com>"
+  ],
+  "description": "antisocial network",
+  "license": "MIT",
+  "devDependencies": {
+    "bootstrap": "~3.3.1"
+  }
+}
