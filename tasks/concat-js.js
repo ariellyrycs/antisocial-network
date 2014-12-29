@@ -6,10 +6,16 @@
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
     path = require('./paths.json'),
+    merge = require('merge-stream'),
     concatJs = function() {
-    return gulp.src(path.src.concat)
-        .pipe(concat('main.js'))
-        .pipe(gulp.dest(path.dest.concat));
+        var concatBuild = gulp.src(path.src.concat.concatBuild)
+            .pipe(concat(path.dest.concat.concatBuildName))
+            .pipe(gulp.dest(path.dest.concat.destRoot)),
+            concatVendor = gulp.src(path.src.concat.concatVendor)
+            .pipe(concat(path.dest.concat.concatVendorName))
+            .pipe(gulp.dest(path.dest.concat.destRoot));
+
+        return merge(concatBuild, concatVendor);
 };
 gulp.task('concat', ['remove'], concatJs);
 gulp.task('concat:onlyWatch', concatJs);

@@ -1,25 +1,44 @@
 {
     "src": {
-        "concat": [
-            "./app/js/je.js",
-            "./app/js/main.j.js"
-        ],
-        "concatVendor": [
-
-        ],
+        "concat": {
+            "concatBuild": [
+                "./app/js/je.js",
+                "./app/js/main.j.js"
+            ],
+            "concatVendor": [
+                "./app/libs/jquery/dist/jquery.min.js"
+            ],
+            "concatCSS": [
+                "./app/tmp/style/**/*.css"
+            ]
+        },
         "jshint": ["./app/js/*.js"],
         "jshintAPI": "./api/**/*.js",
         "jshintGulp": ["./tasks/**/*.js", "./gulpfile.js"],
         "stylus": "./app/style/**/*.styl",
-        "uglify": "./app/tmp/main.js",
+        "cssMin": "./app/tmp/*.css",
+        "uglify": {
+            "all": "./app/tmp/all.js",
+            "vendor": "./app/tmp/vendor.js"
+        },
         "remove": ["./public/**/*.+(css|js)", "./app/tmp/*.*"],
         "nodemonServer": "./server.js",
         "nodemonWatch": ["api/**/*.*", "./server.js"],
         "apiTest": "./api/test/api.js"
     },
     "dest": {
-        "concat": "./app/tmp/",
-        "stylus": "./app/tmp/",
-        "uglify": "./public/js/"
+        "concat": {
+            "destRoot": "./app/tmp/",
+            "concatBuildName": "all.js",
+            "concatVendorName": "vendor.js",
+            "concatCSSName": "main.css"
+        },
+        "stylus": "./app/tmp/style/",
+        "uglify": {
+            "destRoot": "./public/js/",
+            "allName": "all.min.js",
+            "vendorName": "vendor.min.js"
+        },
+        "cssMin": "./public/style/"
     }
 }

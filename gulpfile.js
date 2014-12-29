@@ -13,8 +13,8 @@ fs.readdirSync(__dirname + '/tasks').forEach(function (fileName) {
 
 gulp.task('server', ['lint:APIFiles', 'demon']);
 gulp.task('gulpLintFiles', ['lint:gulpFiles', 'watch:gulpFiles']);
-gulp.task('build', ['remove', 'concat', 'ugly', 'stylus', 'lint']);
-gulp.task('dev', ['server', 'gulpLintFiles', 'remove', 'concat', 'ugly', 'stylus', 'lint', 'watch', 'connectDev']);
+gulp.task('build', ['remove', 'concat', 'ugly', 'stylus', 'concatCSS', 'cssMin', 'lint']);
+gulp.task('dev', ['server', 'gulpLintFiles', 'remove', 'concat', 'ugly', 'stylus', 'concatCSS', 'cssMin', 'lint', 'watch', 'connectDev']);
 gulp.task('test', ['mocha']);
 
 gulp.task('default', ['dev']);
