@@ -1,4 +1,4 @@
 /**
  * Created by arobles on 28/12/14.
  */
-numero();
+'use strict';

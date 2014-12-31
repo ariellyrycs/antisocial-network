@@ -7,6 +7,7 @@ var gulp = require('gulp'),
     path = require('./paths.json'),
     merge = require('merge-stream'),
     uglifyJsFiles = function() {
+        console.log('ugly');
         var vendor = gulp.src(path.src.uglify.vendor)
             .pipe(uglify(path.dest.uglify.vendorName))
             .pipe(gulp.dest(path.dest.uglify.destRoot)),

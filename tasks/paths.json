@@ -12,6 +12,7 @@
                 "./app/tmp/style/**/*.css"
             ]
         },
+        "jade": "./app/**/*.jade",
         "jshint": ["./app/js/*.js"],
         "jshintAPI": "./api/**/*.js",
         "jshintGulp": ["./tasks/**/*.js", "./gulpfile.js"],
@@ -21,7 +22,7 @@
             "all": "./app/tmp/all.js",
             "vendor": "./app/tmp/vendor.js"
         },
-        "remove": ["./public/**/*.+(css|js)", "./app/tmp/*.*"],
+        "remove": ["./public/**/*.+(html|css|js)", "./app/tmp/*.*"],
         "nodemonServer": "./server.js",
         "nodemonWatch": ["api/**/*.*", "./server.js"],
         "apiTest": "./api/test/api.js"
@@ -39,6 +40,7 @@
             "allName": "all.min.js",
             "vendorName": "vendor.min.js"
         },
+        "jade": "./public/",
         "cssMin": "./public/style/"
     }
 }

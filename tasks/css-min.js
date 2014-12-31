@@ -1,10 +1,11 @@
 /**
  * Created by arobles on 28/12/14.
  */
+    'use strict';
 var gulp = require('gulp'),
     cssmin = require('gulp-cssmin'),
-    rename = require("gulp-rename");
-    path = require('./paths.json');
+    rename = require("gulp-rename"),
+    path = require('./paths.json'),
     minCss =  function () {
         return gulp.src(path.src.cssMin)
                 .pipe(cssmin())
@@ -13,3 +14,4 @@ var gulp = require('gulp'),
 
     };
 gulp.task('cssMin', ['concatCSS'], minCss);
+gulp.task('cssMin:onlyWatch', ['concatCSS:onlyWatch'],  minCss);

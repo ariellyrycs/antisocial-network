@@ -4,14 +4,20 @@
 'use strict';
 var gulp = require('gulp'),
     path = require('./paths.json'),
-    asyncTaskControl = [{
-        "src": path.src.concat,
-        "events": ['ugly:onlyWatch', 'lint:onlyWatch', 'reloadConnection:js']
+    asyncTaskControl = {
+        'js': {
+            'src': path.src.concat.concatBuild,
+            'events': ['ugly:onlyWatch', 'lint:onlyWatch', 'reloadConnection:js']
+        },
+        'html': {
+            'src': path.src.jade,
+            'events': ['jade:onlyWatch', 'reloadConnection:html']
+        },
+        'css': {
+            'src': path.src.stylus,
+            'events': ['cssMin:onlyWatch', 'reloadConnection:css']
+        }
     },
-    {
-        "src": path.src.stylus,
-        "events": ['stylus:onlyWatch', 'reloadConnection:css']
-    }],
     asyncBuildTasks = function () {
         var run = function () {
                 console.log('reloaded');
@@ -19,8 +25,9 @@ var gulp = require('gulp'),
             watch = function () {
                 gulp.start(this.asyncTaskControl, run);
             };
-        gulp.watch(asyncTaskControl[0].src, watch.bind({asyncTaskControl: asyncTaskControl[0].events}));
-        gulp.watch(asyncTaskControl[1].src, watch.bind({asyncTaskControl: asyncTaskControl[1].events}));
+        gulp.watch(asyncTaskControl.js.src, watch.bind({asyncTaskControl: asyncTaskControl.js.events}));
+        gulp.watch(asyncTaskControl.html.src, watch.bind({asyncTaskControl: asyncTaskControl.html.events}));
+        gulp.watch(asyncTaskControl.css.src, watch.bind({asyncTaskControl: asyncTaskControl.css.events}));
     },
     asyncGulpTasks = function () {
         var run = function () {

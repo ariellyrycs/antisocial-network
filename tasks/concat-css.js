@@ -1,7 +1,7 @@
 /**
  * Created by arobles on 28/12/14.
  */
-'use strict';
+    'use strict';
 var gulp = require('gulp'),
     concatCss = require('gulp-concat-css'),
     path = require('./paths.json'),
@@ -11,3 +11,4 @@ var gulp = require('gulp'),
             .pipe(gulp.dest(path.dest.concat.destRoot));
     };
 gulp.task('concatCSS', ['stylus'], concatCssFn);
+gulp.task('concatCSS:onlyWatch', ['stylus:onlyWatch'], concatCssFn);

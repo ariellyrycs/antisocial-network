@@ -1,7 +1,7 @@
 /**
  * Created by arobles on 10/8/14.
  */
-'use strict';
+    'use strict';
 var gulp = require('gulp'),
     stylus = require('gulp-stylus'),
     path = require('./paths.json'),

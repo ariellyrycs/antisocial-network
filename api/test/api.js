@@ -1,9 +1,9 @@
 /**
  * Created by arobles on 10/14/14.
  */
-var chai = chai || require('chai'),
-    expect = chai.expect,
-    controllers = require('./../controllers/pets.js');
+var chai = chai || require('chai');
+    //expect = chai.expect,
+    //controllers = require('./../controllers/pets.js');
 describe('post method', function () {
     'use strict';
 

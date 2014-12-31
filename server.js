@@ -27,7 +27,7 @@ app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
-app.set('port', process.env.PORT || 3001);
+app.set('port', process.env.PORT || 8000);
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -79,54 +79,7 @@ mongoose.connect('mongodb://localhost/pets', function(err) {
 });
 
 app.listen(app.get('port'), function () {
-    console.log('listening on port 3000');
+    console.log('listening on port 8000');
 });
 
 module.exports = app;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-var express = require('express'),
-    mongoose = require('mongoose'),
-    responder = require('./api/httpResponder'),
-    bodyParser  = require('body-parser'),
-    fs = require('fs'),
-    app = express(),*/
-
-/*
-app.set('port', process.env.PORT || 3000);
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.set('view engine', 'jade');
-app.use(function (req, res, next){
-    res.type('application/json');
-    res.locals.respond = responder.setup(res);
-    next();
-});
-mongoose.connect('mongodb://localhost/pets', function(err) {
-    if(err) {
-        console.log('error connecting to MongoDB Database. ' + err);
-    } else {
-        console.log('Connected to Database');
-    }
-});
-app.listen(app.get('port'), function () {
-    console.log('listening on port 3000');
-});
-*/
-

@@ -3,3 +3,8 @@
 .idea
 node_modules
 app/libs
+npm-debug.log
+public/**/*.html
+public/**/*.js
+public/**/*.css
+app/tmp/**/*.*

@@ -11,7 +11,7 @@ var gulp = require('gulp'),
             .pipe(jsHint('./tasks/.jshintrc'))
             .pipe(jsHint.reporter(stylish));
     };
-gulp.task('lint', ['ugly', 'stylus'], lintJsProductionFiles.bind({path: path.src.jshint}));
+gulp.task('lint', ['ugly', 'stylus', 'jade'], lintJsProductionFiles.bind({path: path.src.jshint}));
 gulp.task('lint:onlyWatch', ['ugly:onlyWatch'], lintJsProductionFiles.bind({path: path.src.jshint}));
 gulp.task('lint:gulpFiles', lintJsProductionFiles.bind({path: path.src.jshintGulp}));
 gulp.task('lint:APIFiles', lintJsProductionFiles.bind({path: path.src.jshintAPI}));

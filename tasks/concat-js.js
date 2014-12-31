@@ -8,6 +8,7 @@ var gulp = require('gulp'),
     path = require('./paths.json'),
     merge = require('merge-stream'),
     concatJs = function() {
+        console.log('concat');
         var concatBuild = gulp.src(path.src.concat.concatBuild)
             .pipe(concat(path.dest.concat.concatBuildName))
             .pipe(gulp.dest(path.dest.concat.destRoot)),
