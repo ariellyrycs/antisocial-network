@@ -11,5 +11,5 @@ var gulp = require('gulp'),
         .pipe(gulp.dest(path.dest.stylus));
 };
 gulp.task('stylus', ['remove'], stylusCss);
-gulp.task('stylus:onlyWatch', stylusCss);
+gulp.task('stylus:onlyWatch', ['remove:css'], stylusCss);
 

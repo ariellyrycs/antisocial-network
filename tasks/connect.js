@@ -1,18 +1,12 @@
 'use strict';
+
 var gulp = require('gulp'),
-    connect = require('gulp-connect'),
-    reload = function () {
-        return gulp.src('./public/**/*.' + this.type)
-            .pipe(connect.reload());
-    },
-    connectServer = function() {
-        return connect.server({
-            root: ['public'],
-            port: 8001,
-            livereload: true
-        });
+    livereload =  require('gulp-livereload'),
+    path = require('./paths.json'),
+    listen = function () {
+        livereload.listen(35729);
     };
-gulp.task('reloadConnection:html',['jade:onlyWatch'], reload.bind({type: "html"}));
-gulp.task('reloadConnection:js', ['lint:onlyWatch'], reload.bind({type: "js"}));
-gulp.task('reloadConnection:css', ['stylus:onlyWatch'], reload.bind({type: "css"}));
-gulp.task('connectDev', connectServer);
+gulp.watch(path.src.livereload.public).on('change', livereload.changed);
+gulp.task('livereload:Listen', listen);
+
+

@@ -2,17 +2,18 @@
     "src": {
         "concat": {
             "concatBuild": [
-                "./app/js/je.js",
-                "./app/js/main.j.js"
+                "./app/js/app.js",
+                "./app/js/config.route.js"
             ],
             "concatVendor": [
-                "./app/libs/jquery/dist/jquery.min.js"
+                "./app/libs/jquery/dist/jquery.min.js",
+                "./app/libs/angular/angular.min.js",
+                "./app/libs/angular-route/angular.min.js"
             ],
             "concatCSS": [
                 "./app/tmp/style/**/*.css"
             ]
         },
-        "jade": "./app/**/*.jade",
         "jshint": ["./app/js/*.js"],
         "jshintAPI": "./api/**/*.js",
         "jshintGulp": ["./tasks/**/*.js", "./gulpfile.js"],
@@ -22,10 +23,17 @@
             "all": "./app/tmp/all.js",
             "vendor": "./app/tmp/vendor.js"
         },
-        "remove": ["./public/**/*.+(html|css|js)", "./app/tmp/*.*"],
+        "remove": {
+            "all": ["./public/**/*.+(css|js)", "./app/tmp/*.*"],
+            "js": ["./public/**/*.js", "./app/tmp/all.js"],
+            "css": ["./public/**/*.js", "./app/tmp/*.css"]
+        },
         "nodemonServer": "./server.js",
         "nodemonWatch": ["api/**/*.*", "./server.js"],
-        "apiTest": "./api/test/api.js"
+        "apiTest": "./api/test/api.js",
+        "livereload": {
+            "public": "public/**"
+        }
     },
     "dest": {
         "concat": {
@@ -40,7 +48,6 @@
             "allName": "all.min.js",
             "vendorName": "vendor.min.js"
         },
-        "jade": "./public/",
         "cssMin": "./public/style/"
     }
 }

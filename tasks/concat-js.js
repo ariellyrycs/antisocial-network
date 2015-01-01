@@ -19,4 +19,4 @@ var gulp = require('gulp'),
         return merge(concatBuild, concatVendor);
 };
 gulp.task('concat', ['remove'], concatJs);
-gulp.task('concat:onlyWatch', concatJs);
+gulp.task('concat:onlyWatch', ['remove:js'], concatJs);

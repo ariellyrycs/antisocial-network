@@ -16,24 +16,24 @@ var express = require('express'),
 fs.readdirSync(__dirname + '/api/routes').forEach(function (fileName) {
     if(jsFiles.test(fileName)) {
         routes[fileName] = require(__dirname + '/api/routes/' + fileName);
-
     }
 });
 
 // view engine setup
-app.set('views', path.join(__dirname, 'api/webroot/'));
+app.set('views', path.join(__dirname, 'views/'));
 app.set('view engine', 'jade');
 
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
-app.set('port', process.env.PORT || 8000);
+app.set('port', process.env.PORT || 3000);
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'app')));
 app.use('/', routes['index.js']);
+
 
 
 
@@ -79,7 +79,7 @@ mongoose.connect('mongodb://localhost/pets', function(err) {
 });
 
 app.listen(app.get('port'), function () {
-    console.log('listening on port 8000');
+    console.log('listening on port ' + app.get('port'));
 });
 
 module.exports = app;
