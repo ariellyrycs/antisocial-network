@@ -3,7 +3,11 @@
         "concat": {
             "concatBuild": [
                 "./app/js/app.js",
-                "./app/js/config.route.js"
+                "./app/js/config.route.js",
+                "./app/js/controllers/loginController.js",
+                "./app/js/services/facebookService.js",
+                "./app/js/controllers/facebookController.js",
+                "./app/config/facebookConfig.js"
             ],
             "concatVendor": [
                 "./app/libs/jquery/dist/jquery.min.js",
@@ -14,7 +18,7 @@
                 "./app/tmp/style/**/*.css"
             ]
         },
-        "jshint": ["./app/js/*.js"],
+        "jshint": ["./app/js/**/*.js"],
         "jshintAPI": "./api/**/*.js",
         "jshintGulp": ["./tasks/**/*.js", "./gulpfile.js"],
         "stylus": "./app/style/**/*.styl",
@@ -29,7 +33,7 @@
             "css": ["./public/**/*.js", "./app/tmp/*.css"]
         },
         "nodemonServer": "./server.js",
-        "nodemonWatch": ["api/**/*.*", "./server.js"],
+        "nodemonWatch": ["./api/**/*.*", "./server.js"],
         "apiTest": "./api/test/api.js",
         "livereload": {
             "public": "public/**"

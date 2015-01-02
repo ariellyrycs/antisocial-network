@@ -1,7 +1,7 @@
 /**
  * Created by arobles on 28/12/14.
  */
-/* globals angular, $ */
+/* globals angular */
 (function () {
     'use strict';
 
@@ -10,5 +10,3 @@
         baseUrl: 'http://localhost:3000/'
     });
 })();
-
-$('body').css('background', 'green');

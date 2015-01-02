@@ -4,11 +4,16 @@
 'use strict';
 var gulp = require('gulp'),
     nodemon = require('gulp-nodemon'),
-    path = require('./paths.json');
+    livereload = require('gulp-livereload'),
+    path = require('./paths.json'),
 
-gulp.task('demon', ['lint:APIFiles'], function () {
-    return nodemon({
-        script: path.src.nodemonServer,
-        watch: path.src.nodemonWatch
-    }).on('change', ['lint:APIFiles']);
-});
+    startServer = function () {
+        return nodemon({
+            script: path.src.nodemonServer,
+            watch: path.src.nodemonWatch
+        })
+            .on('change', ['lint:APIFiles'])
+            .on('restart', livereload.changed);
+};
+
+gulp.task('demon', ['lint:APIFiles'], startServer);
