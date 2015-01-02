@@ -11,6 +11,7 @@
     "components-font-awesome": "~4.2.0",
     "angular": "~1.3.8",
     "angular-route": "~1.3.8",
-    "onepage-scroll": "~1.3.1"
+    "onepage-scroll": "~1.3.1",
+    "bootstrap-social": "~4.8.0"
   }
 }
