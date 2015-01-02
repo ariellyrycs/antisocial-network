@@ -1,3 +1,58 @@
-div {
-  margin: 0;
+$theme = #c9e2b3;
+$secondTheme = #222222;
+$mainMarginHorizontally = 5em;
+$mainMarginVertically = 5em;
+vendors = webkit moz ms;
+cal()
+  if current-property
+    for prefix in vendors
+      arguments = unquote(arguments)
+      add-property(current-property[0], s('-%s-calc(%s)', prefix, arguments))
+    s('calc(%s)', arguments)
+  else
+    error('calc() must be used within a property')
+
+
+@import url(http://fonts.googleapis.com/css?family=Molengo);
+html, body, main{
+  height:100%;
+}
+
+body {
+  background-color:$theme;
+}
+
+main {
+  min-height: 100%;
+}
+
+footer {
+  background-color:$secondTheme;
+  clear: both;
+  position: relative;
+  z-index: 10;
+  height: 5em;
+  margin-top: -5em;
+}
+
+  /*media queries*/
+.center {
+  margin:$mainMarginVertically $mainMarginHorizontally;
+  width:cal('100% - ' + ($mainMarginVertically * 2));
+  height:cal('100% - ' +  ($mainMarginVertically * 2) );
+}
+
+.main-content {
+  height: 100%;
+  width: 50%;
+}
+
+#exhibit {
+  float: right;
+  background-color #00b3ee;
+}
+
+#sign-box {
+  float: right;
+  background-color #00b3ee;
 }

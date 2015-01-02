@@ -28,15 +28,15 @@
             "vendor": "./app/tmp/vendor.js"
         },
         "remove": {
-            "all": ["./public/**/*.+(css|js)", "./app/tmp/*.*"],
-            "js": ["./public/**/*.js", "./app/tmp/all.js"],
-            "css": ["./public/**/*.js", "./app/tmp/*.css"]
+            "all": ["./build/**/*.+(css|js)", "./app/tmp/*.*"],
+            "js": ["./build/**/*.js", "./app/tmp/all.js"],
+            "css": ["./build/**/*.js", "./app/tmp/*.css"]
         },
         "nodemonServer": "./server.js",
         "nodemonWatch": ["./api/**/*.*", "./server.js"],
         "apiTest": "./api/test/api.js",
         "livereload": {
-            "public": "public/**"
+            "build": [".build/**", ".api/**", ".views/**/*.jade"]
         }
     },
     "dest": {
@@ -48,10 +48,10 @@
         },
         "stylus": "./app/tmp/style/",
         "uglify": {
-            "destRoot": "./public/js/",
+            "destRoot": "./build/js/",
             "allName": "all.min.js",
             "vendorName": "vendor.min.js"
         },
-        "cssMin": "./public/style/"
+        "cssMin": "./build/style/"
     }
 }

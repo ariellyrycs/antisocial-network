@@ -6,7 +6,7 @@ var gulp = require('gulp'),
     listen = function () {
         livereload.listen(35729);
     };
-gulp.watch(path.src.livereload.public).on('change', livereload.changed);
+gulp.watch(path.src.livereload.build).on('change', livereload.changed);
 gulp.task('livereload:Listen', listen);
 
 
