@@ -78,6 +78,18 @@ mongoose.connect('mongodb://localhost/pets', function(err) {
     }
 });
 
+/*facebook*/
+var APP_TOKEN = '624101817712818|NK7kquZsM6xRZgqNRLq_d9sf3gk';
+
+app.get('/verify/:userId/:authToken', function(req, res) {
+    fb.validateUserAccessTokenAndId(APP_TOKEN, req.params.authToken, req.params.userId, function(error, response) {
+        console.log(error, response);
+        res.json({isValid: !error && response.isValid ? true : false});
+    });
+});
+
+
+
 app.listen(app.get('port'), function () {
     console.log('listening on port ' + app.get('port'));
 });

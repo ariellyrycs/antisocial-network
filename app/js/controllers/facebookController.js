@@ -1,6 +1,7 @@
 /**
  * Created by arobles on 1/01/15.
  */
+/*globals angular*/
 (function(angular) {
     'use strict';
 
@@ -15,4 +16,4 @@
 
     app.controller('FacebookLoginController', FacebookLoginController);
 
-})(this.angular);
+})(angular);

@@ -1,22 +1,23 @@
 extends ../layout
 
 block content
-  section
-    .center
-      #sign-box.main-content
-        h1 SignIn
-        div.social-buttons
-          a(class="btn btn-block btn-social btn-lg btn-facebook")
-            i.fa.fa-facebook
-            | Sign in with Facebook
-          a.btn.btn-block.btn-social.btn-lg.btn-twitter
-            i.fa.fa-twitter
-            | Sign in with Twitter
-          a.btn.btn-block.btn-social.btn-lg.btn-google-plus
-            i.fa.fa-google-plus
-            | Sign in with Google Plus
-      #exhibit.main-content
-    div(data-ng-view)
-    #fb-root
-  section hola
+  main(data-ng-controller="LoginController")
+    section
+      .center
+        #sign-box.main-content
+          h1 SignIn
+          div.social-buttons
+            a(class="btn btn-block btn-social btn-lg btn-facebook", data-ng-click="fb.login()")
+              i.fa.fa-facebook
+              | Sign in with Facebook
+            a.btn.btn-block.btn-social.btn-lg.btn-twitter
+              i.fa.fa-twitter
+              | Sign in with Twitter
+            a.btn.btn-block.btn-social.btn-lg.btn-google-plus
+              i.fa.fa-google-plus
+              | Sign in with Google Plus
+        #exhibit.main-content
+      div(data-ng-view)
+      #fb-root
+    section second part
 

@@ -2,15 +2,15 @@
  * Created by arobles on 1/01/15.
  */
 /*globals app*/
-(function () {
+(function (app) {
     'use strict';
-
-    app.controller('ExamplePageController', ['$scope', '$http', 'fb.services', 'fb.controllers', 'fb.config',
+    app.controller('LoginController', ['$scope', '$http', 'FacebookLoginService',
         function ($scope, $http, facebookLoginService) {
             $scope.response = {};
             $scope.initState = 'Initialising...';
 
             $scope.fb = facebookLoginService;
+            console.log(facebookLoginService);
             $scope.fb.init($scope).then(function() {
                 $scope.initState = 'Ready!';
             });
@@ -28,7 +28,5 @@
                         $scope.response = response;
                     });
             };
-
         }]);
-
-})();
+}(app));
