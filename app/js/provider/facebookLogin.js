@@ -8,7 +8,7 @@
     angular.module('FacebookLoginApp',
         [
             'fb.services',
-            'fb.controllers',
+            /*'fb.controllers',*/
             'fb.config'
         ]);
 

@@ -4,17 +4,31 @@
 /*globals app*/
 (function (app) {
     'use strict';
-    app.controller('LoginController', ['$scope', '$http', 'FacebookLoginService',
-        function ($scope, $http, facebookLoginService) {
-            $scope.response = {};
-            $scope.initState = 'Initialising...';
+    app.controller('LoginController', ['$scope', '$http', '$window', 'FacebookLoginService',
+        function ($scope, $http, $window, facebookLoginService) {
 
+
+            $("main").onepage_scroll();
+
+
+            $scope.alert = false;
             $scope.fb = facebookLoginService;
-            console.log(facebookLoginService);
             $scope.fb.init($scope).then(function() {
-                $scope.initState = 'Ready!';
+                console.log('1');
+               // $window.location.href= "#/connected";
+            }, function () {
+                console.log('12');
+                //$window.location.href= "#/";
             });
+            $scope.login = function () {
+                $scope.fb.login().then(function () {
+                   // $window.location.href= "#/connected";
+                }, function () {
+                    $scope.alert = true;
+                });
+            };
 
+            /*
             $scope.verifyMe = function() {
                 $scope.response.isValid = 'checking...';
 
@@ -27,6 +41,6 @@
                         console.log('response', response);
                         $scope.response = response;
                     });
-            };
+            };*/
         }]);
 }(app));

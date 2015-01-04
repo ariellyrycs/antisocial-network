@@ -12,15 +12,15 @@
 
         var baseUrl = settings.baseUrl,
             templates = {
-            main: baseUrl + 'templates/main.jade'
+            main: baseUrl + 'index'
         };
 
         $sceDelegateProvider.resourceUrlWhitelist(['self', baseUrl + '**']);
 
         $routeProvider
-            .when('/as', {
+            .when('/', {
                 templateUrl: templates.main,
-                controller: 'MainController'
+                controller: 'LoginController'
             })
             .otherwise({
                 redirectTo: '/'

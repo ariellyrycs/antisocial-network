@@ -1,5 +1,5 @@
 {
-  "name": "pets-manager-mongodb",
+  "name": "antisocial-network",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ariellyrycs/pets-manager.git"
+    "url": "https://github.com/ariellyrycs/antisocial-network.git"
   },
   "author": "ariel robles <ariel_556@hotmail.com> (https://github.com/ariellyrycs/)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ariellyrycs/pets-manager/issues"
+    "url": "https://github.com/ariellyrycs/antisocial-network/issues"
   },
-  "homepage": "https://github.com/ariellyrycs/pets-manager",
+  "homepage": "https://github.com/ariellyrycs/antisocial-network",
   "devDependencies": {
     "body-parser": "^1.9.0",
     "chai": "^1.9.2",

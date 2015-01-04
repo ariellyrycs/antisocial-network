@@ -1,23 +1,24 @@
-extends ../layout
+//(data-ng-controller="LoginController")
+main
+  section
+    .center
+      .sign-box.main-content
+        h1 SignIn
+        div.social-buttons
+          a(class="btn btn-block btn-social btn-facebook", data-ng-click="login()")
+            i.fa.fa-facebook
+            | Sign in with Facebook
+          a(class="btn btn-block btn-social btn-twitter")
+            i.fa.fa-twitter
+            | Sign in with Twitter
+          a(class="btn btn-block btn-social btn-google-plus")
+            i.fa.fa-google-plus
+            | Sign in with Google Plus
+      .exhibit.main-content
+  section
+    a(href, class="button-outline") second part
+  div(class="sign-in-problem alert alert-danger" data-ng-class="{ 'active': alert }")
+    button(type="button" class="close" data-dismiss="alert") ×
+    strong It wasn't possible to connect try another time
 
-block content
-  main(data-ng-controller="LoginController")
-    section
-      .center
-        #sign-box.main-content
-          h1 SignIn
-          div.social-buttons
-            a(class="btn btn-block btn-social btn-lg btn-facebook", data-ng-click="fb.login()")
-              i.fa.fa-facebook
-              | Sign in with Facebook
-            a.btn.btn-block.btn-social.btn-lg.btn-twitter
-              i.fa.fa-twitter
-              | Sign in with Twitter
-            a.btn.btn-block.btn-social.btn-lg.btn-google-plus
-              i.fa.fa-google-plus
-              | Sign in with Google Plus
-        #exhibit.main-content
-      div(data-ng-view)
-      #fb-root
-    section second part
 

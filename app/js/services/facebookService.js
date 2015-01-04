@@ -70,31 +70,31 @@
                         console.log('picture:', service.picture);
                         console.log('authResponse:', service.authResponse);
                     }
-                    service.resetLoading();
-                    if (deferred) {
-                        deferred.resolve();
-                    }
+                    //service.resetLoading();
                 });
             };
-
             if (service.status === 'connected') {
-                getMe().then(getPermissions).then(getPicture).then(readyCallback);
+                getMe().then(getPermissions).then(getPicture).then(function () {
+                    readyCallback();
+                    deferred.resolve();
+                });
             } else {
                 readyCallback();
+                deferred.reject();
             }
-
         };
 
         var resetService = function() {
-            service.me = null;
+            /*log out Reset Service*/
+            /*service.me = null;
             service.permissions = null;
-            service.authResponse = null;
+            service.authResponse = null;*/
         };
 
         this.init = function(ctrlScope) {
             var deferred = $q.defer();
             service.ctrlScope = ctrlScope;
-            service.setLoading('Initialising authentication...');
+            //service.setLoading('Initialising authentication...');
             FB.init({ appId: config.APP_ID, version: config.API_VERSION});
             FB.getLoginStatus(function(response) {
                 statusChangeCallback(response, deferred);
@@ -104,7 +104,7 @@
 
         this.login = function() {
             var deferred = $q.defer();
-            service.setLoading('Attempting to login...');
+            //service.setLoading('Attempting to login...');
             FB.login(function(response){
                 statusChangeCallback(response, deferred);
             }, {scope: config.PERMISSIONS});
@@ -113,28 +113,30 @@
 
         this.logout = function() {
             var deferred = $q.defer();
-            service.setLoading('Logging you out...');
+            //service.setLoading('Logging you out...');
             FB.logout(function(response) {
-                resetService();
+                //resetService();
                 statusChangeCallback(response, deferred);
             });
             return deferred.promise;
         };
-
+/*
         this.setLoading = function(message) {
+                status
             service.loading = true;
             service.loadingMessage = message;
-        };
-
+        };*/
+/*
         this.resetLoading = function() {
+            It couldn't connect try another time
             service.loading = false;
             service.loadingMessage = '';
         };
-
+*/
     };
 
     FacebookLoginService.$inject = ['$q', '$timeout', 'FacebookLoginConfig'];
 
     app.service('FacebookLoginService', FacebookLoginService);
 
-})(angular);
+}(angular));

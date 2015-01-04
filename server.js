@@ -33,6 +33,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'app')));
 app.use('/', routes['index.js']);
+app.use('/index', function (req, res) {
+    res.render('templates/index');
+});
 
 
 

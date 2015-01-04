@@ -11,7 +11,7 @@
         API_VERSION: 'v2.1',
         APP_ID: '624101817712818',
         PERMISSIONS: 'public_profile, email, publish_actions',
-        DEBUG: false
+        DEBUG: true
     };
 
     // DEBUG: true
